@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <!-- EB Garamond font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <!-- This sets character encoding so Arabic, English, etc. display correctly -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the site responsive on phones (VERY important) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- This is the tab title in the browser -->
+    <title>ytrihs do you know?</title>
+    
+
+    <!-- =========================
+         CSS STYLING STARTS HERE
+         ========================= -->
+    <style>
+
+        /* 
+        This styles EVERYTHING on the page unless overridden below 
+        */
+        body {
+            margin: 0; /* removes default white border around page */
+            background: black; /* page background color */
+            color: white; /* default text color */
+            font-family: "Georgia", serif; /* font style */
+            text-align: center; /* centers all text by default */
+        }
+
+        /*
+        This is the main container holding everything.
+        Think of it like a centered column.
+        */
+        .container {
+            max-width: 500px; /* limits width so text doesn't stretch too wide */
+            margin: auto; /* centers container horizontally */
+            padding: 40px 20px; /* space inside container (top/bottom, left/right) */
+        }
+
+        /*
+        This styles the main image at the top
+        */
+        img {
+            width: 100%; /* image fills container width */
+            max-width: 350px; /* but never gets bigger than 350px */
+            border: 2px solid #ddd; /* light border around image */
+        }
+
+        /*
+        Small subtitle under the image
+        */
+        .subtitle {
+            margin-top: 10px; /* space above subtitle */
+            font-size: 20px; /* small text */
+            opacity: 0.8; /* makes it slightly faded */
+        }
+
+        /*
+        Main big title (first word)
+        */
+        .title {
+            margin-top: 30px; /* space above title */
+            font-size: 64px; /* very large text */
+            font-weight: 700; /* thick text */
+            letter-spacing: px; /* spacing between letters */
+            font-family: "EB Garamond", serif;
+        }
+
+        /*
+        Shadow text under the title (visual effect)
+        */
+        .shadow {
+            margin-top: -45px; /* pulls it UP to overlap title */
+            font-size: 64px; /* same size as title */
+            font-weight: 700;
+            color: #3c3b3b; /* grey color to look like shadow */
+            font-family: "EB Garamond", serif;
+        }
+
+        /*
+        Section headings like "socials" and "writing"
+        */
+        .section {
+            margin-top: 40px; /* space above each section */
+            font-size: 20px; /* medium size text */
+        }
+
+        /*
+        These are the clickable buttons (links)
+        */
+        .button {
+            border: 2px solid #aaa; /* grey outline box */
+            padding: 18px; /* space inside button */
+            margin: 15px 0; /* space between buttons */
+            text-decoration: none; /* removes underline from links */
+            color: white; /* text color */
+            display: block; /* makes each button take full width */
+            transition: 0.2s; /* smooth hover animation */
+        }
+
+        /*
+        What happens when you hover over a button
+        */
+        .button:hover {
+            background: white; /* background turns white */
+            color: black; /* text turns black */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- MAIN PAGE WRAPPER -->
+    <div class="container">
+
+        <!-- =========================
+             IMAGE SECTION
+             ========================= -->
+
+        <!-- 
+        Replace "your-image.jpg" with your actual image file name
+        Example:
+        src="photo.png" or src="images/pic.jpg"
+        -->
+        <img src="image/Rembrandt_-_Jacob_Wrestling_with_the_Angel_-_Google_Art_Project.jpg" alt="art">
+
+        <!-- Subtitle under image -->
+        <div class="subtitle">
+            لا إله إلا الله struggle with God
+        </div>
+
+        <!-- =========================
+             TITLE SECTION
+             ========================= -->
+
+        <!-- Main big title -->
+        <div class="title">ytrihs</div>
+
+        <!-- Shadow/ghost version of title for effect -->
+        <div class="shadow">shirty</div>
+
+        <!-- =========================
+             SOCIAL LINKS SECTION
+             ========================= -->
+
+        <div class="section">socials</div>
+
+        <!-- 
+        Each <a> tag is a link button.
+        Replace "#" with your actual link.
+
+        Example:
+        href="https://twitter.com/yourname"
+        -->
+        <a href="#" class="button">x/twitter</a>
+        <a href="#" class="button">reddit</a>
+
+        <!-- ==================x=======
+             WRITING SECTION
+             ========================= -->
+
+        <div class="section">writing</div>
+
+        <a href="#" class="button">ytrihs's letters</a>
+        <a href="#" class="button">academia.edu</a>
+        <a href="#" class="button">alt site (unused)</a>
+        <!-- =========================
+             TOOLS SECTION
+             ========================= -->
+
+        <div class="section">tools</div>
+
+        <a href="#" class="button">RIWAYA</a>
+    
+    </div>
+<style>
+body {
+  margin: 0;
+  background: black;
+  overflow-x: hidden;
+}
+
+/* FULL SCREEN STAR BACKGROUND */
+.stars-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* content stays above stars */
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+/* stars */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.8); }
+}
+
+/* positions */
+.star:nth-child(1) { top: 20%; left: 10%; }
+.star:nth-child(2) { top: 40%; left: 70%; }
+.star:nth-child(3) { top: 60%; left: 30%; }
+.star:nth-child(4) { top: 80%; left: 80%; }
+.star:nth-child(5) { top: 30%; left: 50%; }
+</style>
+
+<div class="stars-bg">
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+</div>
+</body>
+</html>q
