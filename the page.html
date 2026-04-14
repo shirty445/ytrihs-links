@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<div class="stars-bg">
+  <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </section>
+</div>
+  
+
 <head>
      <!-- EB Garamond font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- This is the tab title in the browser -->
-    <title>ytrihs do you know?</title>
+    <title>ytrihs: do you know?</title>
     
 
     <!-- =========================
@@ -64,11 +80,13 @@
         Main big title (first word)
         */
         .title {
-            margin-top: 30px; /* space above title */
+            margin-top: px; /* space above title */
             font-size: 64px; /* very large text */
             font-weight: 700; /* thick text */
             letter-spacing: px; /* spacing between letters */
             font-family: "EB Garamond", serif;
+            position: relative;
+            z-index: 1;
         }
 
         /*
@@ -76,10 +94,13 @@
         */
         .shadow {
             margin-top: -45px; /* pulls it UP to overlap title */
+            margin-bottom: -40px; 
             font-size: 64px; /* same size as title */
             font-weight: 700;
             color: #3c3b3b; /* grey color to look like shadow */
             font-family: "EB Garamond", serif;
+            position: relative;
+            z-index: 10;
         }
 
         /*
@@ -88,19 +109,24 @@
         .section {
             margin-top: 40px; /* space above each section */
             font-size: 20px; /* medium size text */
+            text-align: center; 
         }
+        
 
         /*
         These are the clickable buttons (links)
         */
         .button {
-            border: 2px solid #aaa; /* grey outline box */
-            padding: 18px; /* space inside button */
-            margin: 15px 0; /* space between buttons */
+            border: 3px solid #aaa; /* grey outline box */
+            padding: 20px; /* space inside button */
+            margin: 12px 0; /* space between buttons */
             text-decoration: none; /* removes underline from links */
             color: white; /* text color */
             display: block; /* makes each button take full width */
+            width: 400px;
+            margin: 12px auto;
             transition: 0.2s; /* smooth hover animation */
+
         }
 
         /*
@@ -140,6 +166,7 @@
              ========================= -->
 
         <!-- Main big title -->
+
         <div class="title">ytrihs</div>
 
         <!-- Shadow/ghost version of title for effect -->
@@ -158,8 +185,8 @@
         Example:
         href="https://twitter.com/yourname"
         -->
-        <a href="#" class="button">x/twitter</a>
-        <a href="#" class="button">reddit</a>
+        <a href="https://x.com/ytrihs" class="button">x/twitter</a>
+        <a href="https://www.reddit.com/user/ytrihs/" class="button">reddit</a>
 
         <!-- ==================x=======
              WRITING SECTION
@@ -167,8 +194,8 @@
 
         <div class="section">writing</div>
 
-        <a href="#" class="button">ytrihs's letters</a>
-        <a href="#" class="button">academia.edu</a>
+        <a href="https://ytrihsresources.substack.com/" class="button">ytrihs's letters</a>
+        <a href="https://independent.academia.edu/ytrihs" class="button">academia.edu</a>
         <a href="#" class="button">alt site (unused)</a>
         <!-- =========================
              TOOLS SECTION
@@ -178,58 +205,180 @@
 
         <a href="#" class="button">RIWAYA</a>
     
-    </div>
+        </div>
 <style>
-body {
-  margin: 0;
-  background: black;
-  overflow-x: hidden;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* FULL SCREEN STAR BACKGROUND */
+body {
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url(bg.png);
+    background-repeat: none;
+    background-position-x: center;
+    background-size: cover;
+    animation: animateBg 50s linear infinite;
+}
+
+@keyframes animateBg {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
 .stars-bg {
   position: fixed;
   inset: 0;
-  pointer-events: none;
-  z-index: 0;
+  z-index: -1; /* 👈 key line */
+  pointer-events: none; /* prevents blocking clicks/images */
+  transform: translateZ(0);
 }
 
-/* content stays above stars */
 .content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
-/* stars */
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: twinkle 2s infinite ease-in-out;
+
+
+span {
+    opacity: 0;
+    animation-fill-mode: backwards;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1),
+    0 0 0 8px rgba(255,255,255,0.1),
+    0 0 20px rgba(255,255,255,1);
+    animation: animate 3s linear infinite;
+    
 }
 
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.8); }
+span:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg,#fff,transparent);
 }
 
-/* positions */
-.star:nth-child(1) { top: 20%; left: 10%; }
-.star:nth-child(2) { top: 40%; left: 70%; }
-.star:nth-child(3) { top: 60%; left: 30%; }
-.star:nth-child(4) { top: 80%; left: 80%; }
-.star:nth-child(5) { top: 30%; left: 50%; }
+@keyframes animate {
+    0% {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+
+span:nth-child(1) {
+    top: 0;
+    right: 0;
+    animation-delay: 0;
+    animation-duration: 1s;
+}
+
+span:nth-child(2) {
+    top: 0;
+    right: 80px;
+    left: initial;
+    animation-delay: -0.2s;
+    animation-duration: 3s;
+}
+
+span:nth-child(3) {
+    top: 80px;
+    right: 0px;
+    left: initial;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
+}
+
+span:nth-child(4) {
+    top: 0px;
+    right: 180px;
+    left: initial;
+    animation-delay: 0.6s;
+    animation-duration: 1.5s;
+}
+
+span:nth-child(5) {
+    top: 0px;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8z;
+    animation-duration: 2.5s;
+}
+
+span:nth-child(6) {
+    top: 0px;
+    right: 600px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 3s;
+}
+
+span:nth-child(7) {
+    top: 300px;
+    right: 0px;
+    left: initial;
+    animation-delay: 1.2s;
+    animation-duration: 1.75s;
+}
+
+span:nth-child(8) {
+    top: 0px;
+    right: 700px;
+    left: initial;
+    animation-delay: 1.4s;
+    animation-duration: 1.25s;
+}
+
+span:nth-child(9) {
+    top: 0px;
+    right: 1000px;
+    left: initial;
+    animation-delay: 0.75s;
+    animation-duration: 2.25s;
+}
+
+span:nth-child(10) {
+    top: 0px;
+    right: 450px;
+    left: initial;
+    animation-delay: 2.75s;
+    animation-duration: 2.25s;
+}
 </style>
 
-<div class="stars-bg">
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-</div>
+
 </body>
-</html>q
+</html>
